@@ -1,5 +1,5 @@
 library(graphics)
-source("power.R")
+source("power.R") #power.R contains the code for reading and cleaning the data.
 
 plot2_draw <- function(data)
 {

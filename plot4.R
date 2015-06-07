@@ -1,8 +1,5 @@
 library(graphics)
-source("power.R")
-source("plot1.R")
-source("plot2.R")
-source("plot3.R")
+source("power.R") #power.R contains the code for reading and cleaning the data.
 
 #given the properly formatted data.frame, produces plot4 to match the image from the assignment
 plot4 <- function(power)
