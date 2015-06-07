@@ -16,9 +16,13 @@ clean_power<-function()
                        sep = ";", #';' is used as separator character
                        na.strings=c("?"), #'?' is used as NA value
                        colClasses = c(rep("character", 2), rep("numeric", 7))) #interpret first 2 columns as character, rest as numeric
+    
+    #concatenate the data and time values into 1 column
     power$DateTime <- paste(as.character(power$Date), as.character(power$Time), sep=" ")
-    #power$Date <- as.Date(as.character(power$Date), format = "%d/%m/%Y")
+    
+    #now convert the datetime string to Posix
     power$DateTime <- strptime(power$DateTime, "%d/%m/%Y %H:%M:%S")
+    
+    #subset the data based on date
     powerSlice = subset(power, DateTime < strptime("2007-02-03", format="%Y-%m-%d") & DateTime >= strptime("2007-02-01", format="%Y-%m-%d"))
-    powerSlice
 }
